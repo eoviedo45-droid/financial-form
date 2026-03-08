@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Tally Form</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- html2canvas library to turn the form into an image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div id="capture-area" class="form-container">
+        <h2>Financial Report</h2>
+        <div class="header-fields">
+            <input type="date" id="date" placeholder="Date">
+            <input type="text" placeholder="Counter 1 Name">
+            <input type="text" placeholder="Counter 2 Name">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Qty</th>
+                    <th>Denomination</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="cash-rows">
+                <!-- Rows for $100, $50, $20, etc. -->
+                <tr data-denom="100"><td><input type="number" class="qty"></td><td>$100.00</td><td>$<span class="row-total">0.00</span></td></tr>
+                <tr data-denom="50"><td><input type="number" class="qty"></td><td>$50.00</td><td>$<span class="row-total">0.00</span></td></tr>
+                <tr data-denom="20"><td><input type="number" class="qty"></td><td>$20.00</td><td>$<span class="row-total">0.00</span></td></tr>
+                <tr data-denom="10"><td><input type="number" class="qty"></td><td>$10.00</td><td>$<span class="row-total">0.00</span></td></tr>
+                <tr data-denom="5"><td><input type="number" class="qty"></td><td>$5.00</td><td>$<span class="row-total">0.00</span></td></tr>
+                <tr data-denom="1"><td><input type="number" class="qty"></td><td>$1.00</td><td>$<span class="row-total">0.00</span></td></tr>
+                <tr data-denom="0.25"><td><input type="number" class="qty"></td><td>$0.25</td><td>$<span class="row-total">0.00</span></td></tr>
+                <tr data-denom="0.10"><td><input type="number" class="qty"></td><td>$0.10</td><td>$<span class="row-total">0.00</span></td></tr>
+                <tr data-denom="0.05"><td><input type="number" class="qty"></td><td>$0.05</td><td>$<span class="row-total">0.00</span></td></tr>
+                <tr data-denom="0.01"><td><input type="number" class="qty"></td><td>$0.01</td><td>$<span class="row-total">0.00</span></td></tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2"><strong>CASH TOTAL</strong></td>
+                    <td><strong>$<span id="grand-total">0.00</span></strong></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="footer-fields">
+            <input type="text" placeholder="Attendance Children">
+            <input type="text" placeholder="Connection Cards">
+        </div>
+    </div>
+
+    <div class="controls">
+        <button onclick="shareForm()">Share as Image (WhatsApp/Email)</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
